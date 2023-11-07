@@ -6,7 +6,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
     private Node<T> tail = null;
 
     
-    public <T> boolean isEmpty(){
+    public boolean isEmpty(){
         return head == null;
     }
 
@@ -14,24 +14,19 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 * insert a String item at the front of the queue
 	 */
 	
-	public <T> void addFirst(T item){
-		Node <T> n = new Node<>(item);
-		if (isEmpty()){
-			head = n;
-			tail = n;
-		}
+	public void addFirst(T item){
 
 
 
-        // Node<T> n = new Node<>(item);
+        Node<T> n = new Node<>(item);
 
-        // if (isEmpty()) {
-        //     head = n;
-        //     tail = n;
-        // } else {
-        //     n.setNext(head);
-        //     head = n;
-        // }
+        if (isEmpty()) {
+            head = n;
+            tail = n;
+        } else {
+            n.setNext(head);
+            head = n;
+        }
     }
 
 	/**
@@ -39,14 +34,15 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 * @return String from the front of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String removeFirst() throws NoSuchElementException{
-        return "";
+	public T  removeFirst() throws NoSuchElementException{
+		T data = null;
+        return data;
     }
 
 	/**
 	 * insert a String item at the end of the queue
 	 */
-	public <T> void addLast(T item){
+	public void addLast(T item){
 
     }
 
@@ -55,8 +51,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 * @return String from the end of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String removeLast() throws NoSuchElementException{
-        return "";
+	public T removeLast() throws NoSuchElementException{
+		T data = null;
+        return data;
     }
 	
 	/**
@@ -64,9 +61,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 * @return String from the front of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String getFirst(){
-    
-        return "";
+	public T getFirst(){
+    	T data = null;
+        return data;
     }
 
 	/**
@@ -74,8 +71,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 * @return String from the end of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String getLast(){
-        return "";
+	public T getLast(){
+       	T data = null;
+        return data;
     }
 	
 	
@@ -95,7 +93,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 * return the size of the queue, 0 if empty
 	 * @return number of elements in the queue
 	 */
-	public <T> int size(){
+	public int size(){
         return 0;
     }
 

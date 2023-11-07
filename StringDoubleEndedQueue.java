@@ -10,45 +10,45 @@ public interface StringDoubleEndedQueue<T> {
 	/**
 	 * @return true if the queue is empty
 	 */
-	public <T> boolean isEmpty();
+	public boolean isEmpty();
 
 	/**
 	 * insert a String item at the front of the queue
 	 */
-	public <T> void addFirst(T item);
+	public void addFirst(T item);
 
 	/**
 	 * remove and return the item at the front of the queue
 	 * @return String from the front of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String removeFirst() throws NoSuchElementException;
+	public T removeFirst() throws NoSuchElementException;
 
 	/**
 	 * insert a String item at the end of the queue
 	 */
-	public <T> void addLast(T item);
+	public void addLast(T item);
 
 	/**
 	 * remove and return the item at the end of the queue
 	 * @return String from the end of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String removeLast() throws NoSuchElementException;
+	public T removeLast() throws NoSuchElementException;
 	
 	/**
 	 * return without removing the item at the front of the queue
 	 * @return String from the front of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String getFirst();
+	public T getFirst();
 
 	/**
 	 * return without removing the item at the end of the queue
 	 * @return String from the end of the queue
 	 * @throws NoSuchElementException if the queue is empty
 	 */
-	public <T> String getLast();
+	public T getLast();
 	
 	
 	/**
@@ -64,5 +64,5 @@ public interface StringDoubleEndedQueue<T> {
 	 * return the size of the queue, 0 if empty
 	 * @return number of elements in the queue
 	 */
-	public <T> int size();
+	public int size();
 }
