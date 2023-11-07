@@ -5,8 +5,8 @@
  */
 public class Node<T> {
     protected T data;
-    protected Node<T> next = null;
-    protected Node<T> prev = null;
+    protected Node next = null;
+    protected Node prev = null;
 
     /**
      * Constructor. Sets data

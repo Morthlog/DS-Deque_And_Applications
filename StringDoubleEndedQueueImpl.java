@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.PrintStream;
 
-public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue {
+public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T> {
     private Node<T> head = null;
     private Node<T> tail = null;
 
@@ -13,16 +13,25 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue {
 	/**
 	 * insert a String item at the front of the queue
 	 */
+	
 	public <T> void addFirst(T item){
-        Node<T> n = new Node<>(item);
+		Node <T> n = new Node<>(item);
+		if (isEmpty()){
+			head = n;
+			tail = n;
+		}
 
-        if (isEmpty()) {
-            head = n;
-            tail = n;
-        } else {
-            n.setNext(head);
-            head = n;
-        }
+
+
+        // Node<T> n = new Node<>(item);
+
+        // if (isEmpty()) {
+        //     head = n;
+        //     tail = n;
+        // } else {
+        //     n.setNext(head);
+        //     head = n;
+        // }
     }
 
 	/**

@@ -5,7 +5,8 @@ import java.util.NoSuchElementException;
  * Defines the methods for a Double-ended Queue that handles String items
  */
 
-public interface StringDoubleEndedQueue {
+
+public interface StringDoubleEndedQueue<T> {
 	/**
 	 * @return true if the queue is empty
 	 */
