@@ -14,7 +14,8 @@ public class Node<T> {
      * @param data the data stored
      * @return
      */
-    Node(T data) {
+    Node(T data) 
+    {
         this.data = data;
     }
 
@@ -23,7 +24,8 @@ public class Node<T> {
      *
      * @return the reference to node's data
      */
-    public T getData() {
+    public T getData() 
+    {
         // return data stored in this node
         return data;
     }
@@ -33,12 +35,14 @@ public class Node<T> {
      *
      * @return the next node
      */
-    public Node<T> getNext() {
+    public Node<T> getNext() 
+    {
         // get next node
         return next;
     }
 
-    public Node<T> getPrev() {
+    public Node<T> getPrev() 
+    {
         // get next node
         return prev;
     }
