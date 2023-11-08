@@ -3,10 +3,11 @@
  * ListNode represents a list node
  * Each node contains a generic type T as data and a reference to the next node in the list.
  */
-public class Node<T> {
+public class Node<T> 
+{
     protected T data;
-    protected Node next = null;
-    protected Node prev = null;
+    protected Node<T> next = null;
+    protected Node<T> prev = null;
 
     /**
      * Constructor. Sets data
@@ -52,7 +53,8 @@ public class Node<T> {
      *
      * @param next reference
      */
-    public void setNext(Node<T> next) {
+    public void setNext(Node<T> next) 
+    {
         this.next = next;
     }
 }
