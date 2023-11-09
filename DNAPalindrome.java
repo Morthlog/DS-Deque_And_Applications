@@ -6,34 +6,39 @@ public class DNAPalindrome
 	public static void main(String[] args) 
 	{
 		StringDoubleEndedQueue<Character> sequenceQueue= new StringDoubleEndedQueueImpl();
-		Scanner keyboard = new Scanner(System.in);
+		Scanner keyboard = new Scanner(System.in);	
+		String input = keyboard.nextLine();
 		
-		String sequence = keyboard.nextLine();
-		validateInputAndPopulateQueue(sequence,sequenceQueue);
-		System.out.println("Is palindrome? "+isComplementedPalindrome(sequenceQueue)); 
-		
+		if(isInputValidAndQueuePopulated(input,sequenceQueue))
+		{
+			System.out.println("Is palindrome:"+isComplementedPalindrome(sequenceQueue)); 
+		}
+		else
+		{
+			System.out.println("Invalid input");
+		}
+				
 		keyboard.close();		
 	}
 	
 	static boolean isComplementedPalindrome (StringDoubleEndedQueue<Character> queue)
 	{
-		//true afou to empty string theoreitai palindromo
+		
 		if(queue.isEmpty())
 		{
-			queue.printQueue(System.out);
-			return true;			
+			return true;	//returns true, as an empty string is complemented palindrome		
 		}
 		
-		//If length not an even → invalid		
+		//If odd, there is a central number as complement.E.g AGT!=ACT
 		if(queue.size()%2!=0)
 		{
 			return false;
 		}
-
+		//
 		while(!queue.isEmpty())
 		{
 			try 
-			{				
+			{	//compare and reduce the size		
 				if( !isCoupleComplementary(queue.removeFirst(), queue.removeLast()) )
 				{
 					return false;
@@ -42,10 +47,8 @@ public class DNAPalindrome
 			catch (Exception e) 
 			{
 				System.out.println(e);
-			}
-					
+			}					
 		}
-		queue.printQueue(System.out);
 		return true;
 	}
 	
@@ -54,7 +57,7 @@ public class DNAPalindrome
 		return((first=='A' && last=='T') || (first=='T' && last=='A') || (first=='C' && last=='G') || (first=='G' && last=='C'));
 	}
 	
-	static void validateInputAndPopulateQueue(String input,StringDoubleEndedQueue<Character> queue )
+	static boolean isInputValidAndQueuePopulated(String input, StringDoubleEndedQueue<Character> queue)
 	{	
 		int length=input.length();
 				
@@ -64,9 +67,10 @@ public class DNAPalindrome
 	
 			if(currentChar!='A' && currentChar!='T' &&  currentChar!='C' && currentChar!='G')
 			{	
-				break;
+				return false;
 			}
-			queue.addLast(currentChar);					
+			queue.addLast(currentChar);				
 		}
+		return true;
 	}
 }
