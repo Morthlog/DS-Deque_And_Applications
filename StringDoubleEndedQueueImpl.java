@@ -161,35 +161,21 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 		StringBuilder message = new StringBuilder();
 		
 		// while not at end of list, output current node's data
-		message.append("HEAD -> |");
+		message.append("HEAD: null <- ");
 		
 		while (current != null) 
-		{		
-			if (current.getPrev() != null)
-	        {
-		    	message.append(current.getPrev().getData());
-	        }
-			else 
-			{
-				message.append("null");
-			}
-			
-			message.append(":Prev|"+ "Data:"+current.getData().toString()+"|Next:");
-			
+		{
+			message.append(current.getData().toString());
+		
 		    if (current.getNext() != null)
 	        {
-		    	message.append(current.getNext().getData());
-		    	message.append("| <-> |");
+		    	message.append(" <-> ");
 	        }
-		    else 
-			{
-				message.append("null");
-			}
-		    		
+		
 		    current = current.next;
 		}
 		
-		message.append("| <- TAIL");
+		message.append(" -> null :TAIL");
 		stream.print(message);
     }
 
