@@ -12,6 +12,7 @@ public class PrefixToInfix
         System.out.print("Type the numeric expression in in prefix: ");
         char[] expresion = (on.nextLine()).toCharArray();
         int length = expresion.length -1;
+        on.close();
 
         if (((int) expresion[length] >=48 && (int) expresion[length] <=57) 
         && ((int) expresion[length-1] >=48 && (int) expresion[length-1] <=57)) // the expression starts with 2 numbers
