@@ -7,6 +7,7 @@ public class Node<T>
 {
     protected T data;
     protected Node<T> next = null;
+    protected Node<T> prev = null;
 
     /**
      * Constructor. Sets data
@@ -29,7 +30,7 @@ public class Node<T>
         // return data stored in this node
         return data;
     }
-
+    
     /**
      * Get reference to next node
      *
@@ -41,14 +42,31 @@ public class Node<T>
         return next;
     }
 
+    public Node<T> getPrev() 
+    {
+        // get next node
+        return prev;
+    }
+
     /**
-     * Set reference to next node
+     * Sets reference to next node
      *
      * @param next reference
      */
     public void setNext(Node<T> next) 
     {
         this.next = next;
+    }
+    
+    
+    /**
+     * Sets reference to previous node
+     *
+     * @param prev reference
+     */
+    public void setPrev(Node<T> prev) 
+    {
+        this.prev = prev;
     }
 }
 
