@@ -154,7 +154,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	{
 		if (isEmpty()) 
 		{
-			stream.println("List is empty");
+			stream.println("List is empty\n");
 			return;
 		}
 
@@ -177,8 +177,8 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 		    current = current.next;
 		}
 		
-		message.append(" <- TAIL");
-		stream.print(message);
+		message.append(" <- TAIL\n");
+		stream.println(message);
     }
 
 
@@ -193,7 +193,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	
 	public static void main(String[] args) {
 		StringDoubleEndedQueueImpl<String> queue = new StringDoubleEndedQueueImpl<>();
-		System.out.print("Print empty Queue:");
+		System.out.print("Print empty Queue: ");
 		queue.printQueue(System.out);
 		
 	    // Test the methods
@@ -202,9 +202,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	    queue.addFirst("C");
 	    queue.addLast("D");
 	
-	    System.out.print("Queue:");
+	    System.out.print("Queue: ");
 	    queue.printQueue(System.out);
-	    System.out.println(". Size: " + queue.size());
+	    System.out.println("Size: " + queue.size());
 	
 	    System.out.println("First element: " + queue.getFirst());
 	    System.out.println("Last element: " + queue.getLast());
@@ -212,9 +212,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	    System.out.println("Removed first element: " + queue.removeFirst());
 	    System.out.println("Removed last element: " + queue.removeLast());
 	
-	    System.out.print("Queue after removals:");
+	    System.out.print("Queue after removals: ");
 	    queue.printQueue(System.out);
-	    System.out.println(". Size: " + queue.size());
+	    System.out.println("Size: " + queue.size());
 	}
 	
 }
