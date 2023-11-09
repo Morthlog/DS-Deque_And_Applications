@@ -30,7 +30,7 @@ public class Node<T>
         // return data stored in this node
         return data;
     }
-    
+
     /**
      * Get reference to next node
      *
@@ -49,24 +49,13 @@ public class Node<T>
     }
 
     /**
-     * Sets reference to next node
+     * Set reference to next node
      *
      * @param next reference
      */
     public void setNext(Node<T> next) 
     {
         this.next = next;
-    }
-    
-    
-    /**
-     * Sets reference to previous node
-     *
-     * @param prev reference
-     */
-    public void setPrev(Node<T> prev) 
-    {
-        this.prev = prev;
     }
 }
 
