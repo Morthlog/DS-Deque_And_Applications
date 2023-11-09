@@ -27,6 +27,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
         else 
         {
             n.setNext(head);
+            head.setPrev(n);
             head = n;
         }
         size++;
@@ -53,7 +54,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
            
         else
         {
-        	head = head.getNext();
+        	Node<T> secondNode = head.getNext();
+        	secondNode.setPrev(null);
+        	head = secondNode;
         }
           
         size--;
@@ -75,6 +78,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
         else 
         {
             tail.setNext(n);
+            n.setPrev(tail);
             tail = n;
         }
         size++;
@@ -101,14 +105,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
            
         else 
         {
-            Node<T> iterator = head;
-            while (iterator.getNext() != tail)
-            {
-            	 iterator = iterator.getNext();
-            }
-              
-            iterator.setNext(null);
-            tail = iterator;
+            Node<T> beforeLast= tail.getPrev();
+            beforeLast.setNext(null);
+            tail=beforeLast;
         }
         size--;
         return data;
@@ -140,8 +139,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
     		return tail.getData();
     	}
 		return null;
-    }
-	
+    }	
 	
 	/**
 	 * prints the data of the queue, starting from the front, 
@@ -154,7 +152,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	{
 		if (isEmpty()) 
 		{
-			stream.println("List is empty\n");
+			stream.println("List is empty");
 			return;
 		}
 
@@ -163,21 +161,35 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 		StringBuilder message = new StringBuilder();
 		
 		// while not at end of list, output current node's data
-		message.append("\nHEAD -> ");
+		message.append("HEAD -> |");
 		
 		while (current != null) 
-		{
-			message.append(current.getData().toString());
-		
+		{		
+			if (current.getPrev() != null)
+	        {
+		    	message.append(current.getPrev().getData());
+	        }
+			else 
+			{
+				message.append("null");
+			}
+			
+			message.append(":Prev|"+ "Data:"+current.getData().toString()+"|Next:");
+			
 		    if (current.getNext() != null)
 	        {
-		    	message.append(" -> ");
+		    	message.append(current.getNext().getData());
+		    	message.append("| <-> |");
 	        }
-		
+		    else 
+			{
+				message.append("null");
+			}
+		    		
 		    current = current.next;
 		}
 		
-		message.append(" <- TAIL\n");
+		message.append("| <- TAIL");
 		stream.println(message);
     }
 
@@ -202,7 +214,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	    queue.addFirst("C");
 	    queue.addLast("D");
 	
-	    System.out.print("Queue: ");
+	    System.out.print("Queue after insertion: ");
 	    queue.printQueue(System.out);
 	    System.out.println("Size: " + queue.size());
 	
@@ -216,6 +228,5 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	    queue.printQueue(System.out);
 	    System.out.println("Size: " + queue.size());
 	}
-	
 }
 
