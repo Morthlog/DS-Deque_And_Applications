@@ -27,10 +27,8 @@ public class PrefixToInfix
                 }
                 else if(intChar == 42 || intChar == 43 || intChar == 45 || intChar == 47) //* is *,+,-,/ 
                 {
-                    a = myList.getFirst();
-                    myList.removeFirst();
-                    b = myList.getFirst();
-                    myList.removeFirst();
+                    a = myList.removeFirst();
+                    b = myList.removeFirst();
                     temp = "(" + a + expresion[i] + b + ")";
                     myList.addFirst(temp);
                 }
