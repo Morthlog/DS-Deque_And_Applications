@@ -7,7 +7,6 @@ public class Node<T>
 {
     protected T data;
     protected Node<T> next = null;
-    protected Node<T> prev = null;
 
     /**
      * Constructor. Sets data
@@ -40,12 +39,6 @@ public class Node<T>
     {
         // get next node
         return next;
-    }
-
-    public Node<T> getPrev() 
-    {
-        // get next node
-        return prev;
     }
 
     /**
