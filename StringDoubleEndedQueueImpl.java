@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.PrintStream;
-import java.rmi.server.UnicastRemoteObject;
 
 public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T> 
 {
@@ -28,6 +27,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
         else 
         {
             n.setNext(head);
+            head.setPrev(n);
             head = n;
         }
         size++;
@@ -54,7 +54,9 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
            
         else
         {
-        	head = head.getNext();
+        	Node<T> secondNode = head.getNext();
+        	secondNode.setPrev(null);
+        	head = secondNode;
         }
           
         size--;
@@ -76,8 +78,10 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
         else 
         {
             tail.setNext(n);
+            n.setPrev(tail);
             tail = n;
         }
+        size++;
     }
 
 	/**
@@ -101,16 +105,11 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
            
         else 
         {
-            Node<T> iterator = head;
-            while (iterator.getNext() != tail)
-            {
-            	 iterator = iterator.getNext();
-            }
-              
-            iterator.setNext(null);
-            tail = iterator;
+            Node<T> beforeLast= tail.getPrev();
+            beforeLast.setNext(null);
+            tail=beforeLast;
         }
-
+        size--;
         return data;
     }
 	
@@ -140,8 +139,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
     		return tail.getData();
     	}
 		return null;
-    }
-	
+    }	
 	
 	/**
 	 * prints the data of the queue, starting from the front, 
@@ -163,7 +161,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 		StringBuilder message = new StringBuilder();
 		
 		// while not at end of list, output current node's data
-		message.append("\n\nHEAD -> ");
+		message.append("HEAD: null <- ");
 		
 		while (current != null) 
 		{
@@ -171,13 +169,13 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 		
 		    if (current.getNext() != null)
 	        {
-		    	message.append(" -> ");
+		    	message.append(" <-> ");
 	        }
 		
 		    current = current.next;
 		}
 		
-		message.append(" <- TAIL");
+		message.append(" -> null :TAIL");
 		stream.print(message);
     }
 
