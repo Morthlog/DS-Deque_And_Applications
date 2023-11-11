@@ -5,7 +5,7 @@ public class PrefixToInfix
     public static void main(String args[])
     {   
         boolean valid = true;
-        int intChar;    //reduce amount of casting
+        char ch;
         String a, b, temp;
         StringDoubleEndedQueueImpl <String> myList = new StringDoubleEndedQueueImpl<>();
         Scanner on = new Scanner(System.in);
@@ -14,18 +14,18 @@ public class PrefixToInfix
         int length = expresion.length -1;
         on.close();
 
-        if (((int) expresion[length] >=48 && (int) expresion[length] <=57) 
-        && ((int) expresion[length-1] >=48 && (int) expresion[length-1] <=57)) // the expression starts with 2 numbers
+        if ((expresion[length] >= '0' && expresion[length] <= '9') 
+        && (expresion[length-1] >= '0' && (int) expresion[length-1] <= '9')) // the expression starts with 2 numbers
         {
             for (int i = length; i>=0; i--)
             {
-                intChar = (int) expresion[i];
+                ch = expresion[i];
 
-                if (intChar>=48 && intChar<=57) //* is a number
+                if (ch >= '0' && ch <= '9')
                 {
                     myList.addFirst(String.valueOf(expresion[i]));
                 }
-                else if(intChar == 42 || intChar == 43 || intChar == 45 || intChar == 47) //* is *,+,-,/ 
+                else if(ch == '*' || ch == '+' || ch == '-' || ch == '/') //* is *,+,-,/ 
                 {
                     a = myList.removeFirst();
                     b = myList.removeFirst();
@@ -38,7 +38,6 @@ public class PrefixToInfix
                     valid = false;
                     break;
                 }
-
             }
         }
         else
