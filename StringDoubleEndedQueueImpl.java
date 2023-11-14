@@ -120,11 +120,12 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 */
 	public T getFirst()
 	{
-    	if(head!=null)
-    	{
-    		return head.getData();
-    	}
-		return null;    	
+		if (isEmpty())
+		{
+			 throw new NoSuchElementException();
+		}
+		
+		return head.getData();    	
     }
 
 	/**
@@ -134,11 +135,12 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	 */
 	public T getLast()
 	{
-		if(tail!=null)
-    	{
-    		return tail.getData();
-    	}
-		return null;
+		if (isEmpty())
+		{
+			 throw new NoSuchElementException();
+		}
+		
+		return tail.getData();    
     }	
 	
 	/**
@@ -192,6 +194,7 @@ public class  StringDoubleEndedQueueImpl<T> implements StringDoubleEndedQueue<T>
 	public static void main(String[] args) {
 		StringDoubleEndedQueueImpl<String> queue = new StringDoubleEndedQueueImpl<>();
 		System.out.print("Print empty Queue: ");
+		
 		queue.printQueue(System.out);
 		
 	    // Test the methods
