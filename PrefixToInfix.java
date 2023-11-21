@@ -9,13 +9,13 @@ public class PrefixToInfix
         String a, b, temp;
         StringDoubleEndedQueueImpl <String> myList = new StringDoubleEndedQueueImpl<>();
         Scanner on = new Scanner(System.in);
-        System.out.print("Type the numeric expression in in prefix: ");
+        System.out.print("Type the numeric expression in prefix: ");
         char[] expresion = (on.nextLine()).toCharArray();
         int length = expresion.length -1;
         on.close();
 
         if ((expresion[length] >= '0' && expresion[length] <= '9') 
-        && (expresion[length-1] >= '0' && (int) expresion[length-1] <= '9')) // the expression starts with 2 numbers
+        && (expresion[length-1] >= '0' && (int) expresion[length-1] <= '9')) // the expression ends with 2 numbers
         {
             for (int i = length; i>=0; i--)
             {
