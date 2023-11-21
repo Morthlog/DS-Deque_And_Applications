@@ -5,7 +5,7 @@ public class DNAPalindrome
 
 	public static void main(String[] args) 
 	{
-		StringDoubleEndedQueue<Character> sequenceQueue= new StringDoubleEndedQueueImpl();
+		StringDoubleEndedQueue<Character> sequenceQueue= new StringDoubleEndedQueueImpl<Character>();
 		
 		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Type a sequence to check if it is a Watson-Crick complemented palindrome: ");	
